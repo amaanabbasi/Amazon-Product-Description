@@ -1,15 +1,15 @@
 # Amazon product description generator for [texta.ai](https://texta.ai)
-[Видео туториал](https://www.youtube.com/watch?v=GzHJ3NUVtV4)
+[Video tutorial](https://www.youtube.com/watch?v=GzHJ3NUVtV4)
 
-Все не так уж и сложно. Для начала скачаем нужную библиотеку.
+Everything is not so difficult. First, let's download the required library.
 
 ```
 $ pip install happytransformer
 ```
 
-Скачиваем модельку с [drive](https://drive.google.com/drive/folders/1a4SclxrGzdjrNlG4sUT3Wzpyn8qqxWLu?usp=sharing) или с этой github repo. Тут всего 4 варианта (0 тренировалась меньше всех, 3 больше).
+We connect this library and load the selected model, pointing to it the path in the directory. [drive](https://drive.google.com/drive/folders/1a4SclxrGzdjrNlG4sUT3Wzpyn8qqxWLu?usp=sharing) 
 
-Подклучаем эту библиотеку и загружаем выбранную модельку, указывая на нее путь в `directory`.
+from happytransformer import HappyGeneration `directory`.
 
 ```python
 from happytransformer import HappyGeneration
@@ -17,7 +17,7 @@ from happytransformer import HappyGeneration
 happy_gen = HappyGeneration(load_path="/content/drive/MyDrive/GPT-Neo_Amazon/3/")
 ```
 
-Далее, можно задать настройки генирации. Если все есть вопросы, что это за настройки, то можно посмотреть их [тут](https://happytransformer.com/text-generation/settings/).
+Next, you can set the generation settings. If everyone has questions about what these settings are, then you can see them[here](https://happytransformer.com/text-generation/settings/).
 
 ```python
 min_length =  10
@@ -32,8 +32,7 @@ no_repeat_ngram_size = 1
 
 gen_args = GENSettings(min_length, max_length, do_sample, early_stopping, num_beams, temperature, top_k, no_repeat_ngram_size, top_p)
 ```
-
-Для генерации, запускаем следующию функцию, где `text` это промпт который используем. Примеры таких можно найти в вкладке Test Model этого файла. Результат генерации находится в `result.text`.
+To generate, we run the following function, where `text` is the prompt we are using. Examples of these can be found in the Test Model tab of this file. The result of the generation is in `result.text`.
 
 ```python
 result = happy_gen.generate_text(text, args=gen_args)
@@ -41,4 +40,4 @@ result = happy_gen.generate_text(text, args=gen_args)
 print(result.text)
 ```
 
-Вроде все. Спасибо за внимание.
+Look like that's it. Thank you for your attention.
